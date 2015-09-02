@@ -36,40 +36,6 @@ angular.module('starter.services', [])
 
 })
 
-.factory('DeviceAccountsService', ['$q', '$ionicPlatform', function($q, $ionicPlatform, $cordovaDevice) {
-
-  "use strict";
-
-  var defer = $q.defer();
-
-  setTimeout(function() {
-    $ionicPlatform.ready(function() {
-      if (window.cordova && window.cordova.plugins && window.plugins) {
-        //window.plugins.DeviceAccounts.getEmails(function(accounts) {
-        window.plugins.DeviceAccounts.get(function(accounts) {
-          defer.notify("Google Accounts found : " + JSON.stringify(accounts));
-          var emails = [];
-          for (var i = 0; i < accounts.length; i++) {
-            if (accounts[i].name.indexOf('@') > -1) {
-              emails.push(accounts[i].name);
-            }
-          }
-          defer.resolve(emails);
-        }, function(error) {
-          defer.notify('Fail to retrieve accounts, details on exception:', error);
-          defer.reject(error);
-        });  
-      } else {
-        var noAccounts = [];
-        defer.resolve(noAccounts);
-      }
-    });
-  }, 1000);
-  
-  return defer.promise;
-
-}])
-
 .factory('AuthService', ['$ionicUser', '$localstorage', function($ionicUser, $localstorage) {
 
   return {

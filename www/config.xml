@@ -17,4 +17,12 @@
         Alessandro Holanda
     </author>
 
+    <content src="index.html"/>
+
+    <gap:plugin name="org.apache.cordova.device" version="0.2.12" />
+
+    <icon src="icon.png" />
+
+    
+
 </widget>

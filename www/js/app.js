@@ -20,7 +20,7 @@ angular.module('starter', [
   ])
 
 .run(function($rootScope, $ionicPlatform, $cordovaPush, $cordovaSQLite, $cordovaDevice, $cordovaNetwork, 
-  $localstorage, AuthService, PushService, DeviceAccountsService) {
+  $localstorage, AuthService, PushService) {
 
   $rootScope.settings = {
     accounts: [] /*['demo@altamira.com.br', 'john.doe@hotmail.com']*/,
@@ -43,42 +43,13 @@ angular.module('starter', [
       StatusBar.styleLightContent();
     }
 
-    var accounts = DeviceAccountsService;
-    accounts.then(function(list) {
-      $rootScope.settings.accounts = list;
-    });
-
     var user = $localstorage.get('user');
 
     if (!user) {
       user = {};
     }
-
-    if (!user.deviceInfo) {
-      user.deviceInfo = {};
-    }
     
-    user.deviceInfo.device = ionic.Platform.device();
-
-    user.deviceInfo.isWebView = ionic.Platform.isWebView();
-    user.deviceInfo.isIPad = ionic.Platform.isIPad();
-    user.deviceInfo.isIOS = ionic.Platform.isIOS();
-    user.deviceInfo.isAndroid = ionic.Platform.isAndroid();
-    user.deviceInfo.isWindowsPhone = ionic.Platform.isWindowsPhone();
-
-    user.deviceInfo.currentPlatform = ionic.Platform.platform();
-    user.deviceInfo.currentPlatformVersion = ionic.Platform.version();
-
-    if( ionic.Platform.isAndroid() || ionic.Platform.isIOS() || ionic.Platform.isIPad() || ionic.Platform.isWindowsPhone()){
-      user.deviceInfo.deviceModel = $cordovaDevice.getModel();
-      user.deviceInfo.deviceUUID = $cordovaDevice.getUUID();
-    }else{
-      console.log("Is not Android");
-      user.deviceInfo.deviceModel = "windows";
-      user.deviceInfo.deviceUUID = "00000000-0000-0000-0000-000000000000";
-    }
-
-    console.log('deviceModel: ' + user.deviceInfo.deviceModel + ', deviceUUID: ' + user.deviceInfo.deviceUUID);
+    user.device = $cordovaDevice.getDevice();
 
     $localstorage.set('user', user);
 

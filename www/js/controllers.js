@@ -57,8 +57,8 @@ angular.module('starter.controllers', [])
 .controller('AccountCtrl', function($rootScope, $scope, $state, $localstorage, $ionicUser, $cordovaNetwork, PushService) {
 
   // Identifies a user with the Ionic User service
-  $scope.identifyUser = function(choice) {
-    console.log('User identified ' + choice);
+  $scope.register = function(account) {
+    console.log('User identified ' + account);
 
     $rootScope.settings.showSpin = true;
 
@@ -69,7 +69,7 @@ angular.module('starter.controllers', [])
       //id = $ionicUser.generateGUID()
       //name: "John Doe", // not actually needed for this example
       //device: device.uuid
-      email: choice
+      email: account
     });
 
     $localstorage.set('user', user);
