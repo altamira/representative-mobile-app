@@ -24,7 +24,8 @@
       "id": "com.phonegap.plugins.PushPlugin"
     },
     "org.apache.cordova.network-information",
-    "org.apache.cordova.device"
+    "org.apache.cordova.device",
+    "cordova-plugin-network-information"
   ],
   "cordovaPlatforms": [
     "android",
