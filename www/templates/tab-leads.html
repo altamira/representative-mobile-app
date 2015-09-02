@@ -1,0 +1,17 @@
+<ion-view view-title="Oportunidades de Negocio">
+  <ion-content>
+    <ion-list>
+      <ion-item class="item" ng-repeat="lead in leads" type="item-text-wrap" href="#/tab/leads/{{lead.id}}">
+        <!--<img ng-src="{{chat.face}}">-->
+        <h2 ng-show='lead.company'>{{lead.company}}</h2>
+        <h2 ng-show='!lead.company'>{{lead.contact.person.name}}</h2>
+        <p ng-show='lead.company'>{{lead.contact.person.name}}</p>
+        <!-- <i class="icon ion-chevron-right icon-accessory"></i> -->
+
+        <!-- <ion-option-button class="button-assertive" ng-click="remove(lead)">
+          Delete
+        </ion-option-button>-->
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>
