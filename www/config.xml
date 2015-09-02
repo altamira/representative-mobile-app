@@ -20,7 +20,7 @@
     <content src="index.html"/>
 
     <gap:plugin name="org.apache.cordova.device" version="0.2.12" />
-    <gap:plugin name="org.apache.cordova.network-information" version="0.2.12" />
+    <gap:plugin name="org.apache.cordova.network-information" version="1.0.1" />
     <gap:plugin name="com.phonegap.plugins.pushplugin" version="2.5.0" />
     <gap:plugin name="io.litehelpers.cordova.sqlite" version="0.7.10" />
 
