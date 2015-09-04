@@ -64,12 +64,14 @@ angular.module('starter.controllers', [])
 
     var user = $localstorage.get('user');
 
+    user.id = undefined; // reset id
+
     // Add some metadata to your user object.
     angular.extend(user, {
       //id = $ionicUser.generateGUID()
       //name: "John Doe", // not actually needed for this example
       //device: device.uuid
-      email: account
+      email: account,
     });
 
     $localstorage.set('user', user);

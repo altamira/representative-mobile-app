@@ -125,7 +125,8 @@ angular.module('starter.services', [])
 
   "use strict";
 
-  var endpoint = "http://gcm-services.elasticbeanstalk.com/api/0.0.3-SNAPSHOT";
+  //var endpoint = "http://gcm-services.elasticbeanstalk.com/api/0.0.3-SNAPSHOT";
+  var endpoint = "http://gcm.altamira.com.br/api/0.0.3-SNAPSHOT";
 
   return {
     register: function(user) {
@@ -152,15 +153,19 @@ angular.module('starter.services', [])
         $http.post(endpoint + "/register", user)
         .then(function(response) {
 
-          $localstorage.set('user', response.data);
+          var user = response.data;
+
+          $localstorage.set('user', user);
 
           console.log($state);
 
-          console.log('User registered: ' + JSON.stringify(response.data));
+          console.log('User registered: ' + JSON.stringify(user));
 
-          SyncService.syncAll(response.data.token);
+          SyncService.syncAll(user.token);
 
           $rootScope.settings.showSpin = false;
+
+          alert('Um email foi enviado para ' + user.email + ' com instruções para ativar o aplicativo. Enquanto este procedimento não for realizado o aplicativo não estará habilitado para receber informações do Sistema de Vendas da Altamira.')
 
           $state.transitionTo('tab.leads', /*$stateParams*/{}, { reload: true, inherit: false, notify: true });
 
@@ -179,7 +184,7 @@ angular.module('starter.services', [])
 
   "use strict";
 
-  var endpoint = 'http://sales-lead.elasticbeanstalk.com/api/0.0.1-SNAPSHOT';
+  var endpoint = 'http://vendas.altamira.com.br/api/0.0.1-SNAPSHOT';
 
   return {
     syncAll: function(token) {
