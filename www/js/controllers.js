@@ -1,6 +1,6 @@
 angular.module('starter.controllers', [])
 
-.controller('LeadsCtrl', function($scope, SyncService, Lead) {
+.controller('LeadListCtrl', function($scope, SyncService, Lead, Leads) {
   // With the new view caching in Ionic, Controllers are only called
   // when they are recreated or on app start, instead of every page change.
   // To listen for when this page is active (for example, to refresh data),
@@ -26,6 +26,7 @@ angular.module('starter.controllers', [])
   }
 
   $scope.list();
+  //$scope.leads = Leads.all();
 
   $scope.add = function(lead) {
     Lead.add(lead);
@@ -43,7 +44,7 @@ angular.module('starter.controllers', [])
   };  
 })
 
-.controller('LeadDetailCtrl', function($scope, $stateParams, Lead) {
+.controller('LeadEditCtrl', function($scope, $state, $stateParams, Lead) {
   Lead.get($stateParams.id).then(function(lead) {
     $scope.lead = lead;
     $scope.companyShow = true;
@@ -68,7 +69,7 @@ angular.module('starter.controllers', [])
 
     // Add some metadata to your user object.
     angular.extend(user, {
-      //id = $ionicUser.generateGUID()
+      //id: $ionicUser.generateGUID(),
       //name: "John Doe", // not actually needed for this example
       //device: device.uuid
       email: account,

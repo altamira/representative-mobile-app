@@ -16,14 +16,15 @@ angular.module('starter', [
     'ionic.service.core',
     'ionic.service.push',
     'starter.controllers', 
-    'starter.services'
+    'starter.services',
+    'starter.directives'
   ])
 
-.run(function($rootScope, $ionicPlatform, $cordovaPush, $cordovaSQLite, $cordovaDevice, $cordovaNetwork, 
+.run(function($rootScope, $ionicPlatform, $cordovaPush, 
+  $cordovaSQLite, $cordovaDevice, $cordovaNetwork, 
   $localstorage, AuthService, PushService) {
 
   $rootScope.settings = {
-    accounts: [] /*['demo@altamira.com.br', 'john.doe@hotmail.com']*/,
     account: undefined,
     showSpin: false
   };
@@ -43,16 +44,6 @@ angular.module('starter', [
       StatusBar.styleLightContent();
     }
 
-    var user = $localstorage.get('user');
-
-    if (!user) {
-      user = {};
-    }
-    
-    user.device = $cordovaDevice.getDevice();
-
-    $localstorage.set('user', user);
-
     if(window.cordova) {
       // App syntax
       db = $cordovaSQLite.openDB("sales.db");
@@ -62,6 +53,16 @@ angular.module('starter', [
     } 
 
     $cordovaSQLite.execute(db, "CREATE TABLE IF NOT EXISTS lead (id TEXT PRIMARY KEY, cname TEXT, pname TEXT, payload TEXT)");
+
+    var user = $localstorage.get('user');
+
+    if (!user) {
+      user = {};
+    }
+
+    user.device = $cordovaDevice.getDevice();
+
+    $localstorage.set('user', user);
 
     var networkStatus = $cordovaNetwork.getNetwork();
 
@@ -92,43 +93,37 @@ angular.module('starter', [
   $stateProvider
 
   // setup an abstract state for the tabs directive
-  .state('tab', {
+  /*.state('tab', {
     url: '/tab',
     abstract: true,
     templateUrl: 'templates/tabs.html'
-  })
+  })*/
 
-  .state('tab.leads', {
-    url: '/leads',
+  .state('lead', {
+    url: '/lead',
     cache: false, //required
-    views: {
-      'tab-leads': {
-        templateUrl: 'templates/tab-leads.html',
-        controller: 'LeadsCtrl'
-      }
-    },
+    templateUrl: 'templates/lead/list.html',
+    controller: 'LeadListCtrl',
     authenticate: true
   })
 
-  .state('tab.lead-detail', {
-    url: '/leads/:id',
-    views: {
-      'tab-leads': {
-        templateUrl: 'templates/lead-detail.html',
-        controller: 'LeadDetailCtrl'
-      }
-    },
+  .state('lead-edit', {
+    url: '/lead/:id',
+
+        templateUrl: 'templates/lead/edit.html',
+        controller: 'LeadEditCtrl'
+,
     authenticate: true
   })
 
   .state('account', {
     url: '/account',
-    templateUrl: 'templates/tab-account.html',
+    templateUrl: 'templates/account.html',
     controller: 'AccountCtrl',
     authenticate: false
   });
 
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/tab/leads');
+  $urlRouterProvider.otherwise('/lead');
 
 }]);

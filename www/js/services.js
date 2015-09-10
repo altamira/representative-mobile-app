@@ -5,10 +5,10 @@ angular.module('starter.services', [])
 
   // Some fake testing data
   var leads = [
-    /*{"company":{"name":""},"contact":{"person":{"name":"Vanessa Forestiero"},"email":{"address":"vanessa.forestiero@altamira.com.br"},"phone":{"internationalCode":55,"areaCode":11,"prefix":2095,"number":2855,"accessCode":0},"mobile": {"internationalCode":55,"areaCode":11,"prefix":99234,"number":4567},"department":"Vendas","role":"Assistente de Vendas"},"address":{"address":"Rua Ganges","number":"553","complement":"galpao 1","city":{"name":"São Paulo","state":{"name":"São Paulo","acronym":"SP","country":"Brasil"}},"zip":"07443-030"},"vendor":{"code":"001","name":"Administracao"},"id":"20e8df5e-0d9e-4e77-8cf2-d31f3d5895cf","version":1,"timestamp":1439173303878,"userId":"vanessa.forestiero@altamira.com.br"},
-    {"company":{"name":"Tecnequip Tecnologia em Equipamentos Ltda"},"contact":{"person":{"name":"Vanessa Forestiero"},"email":{"address":"vanessa.forestiero@altamira.com.br"},"phone":{"internationalCode":55,"areaCode":11,"prefix":2095,"number":2855,"accessCode":0},"mobile": {"internationalCode":55,"areaCode":11,"prefix":99234,"number":4567},"department":"Vendas","role":"Assistente de Vendas"},"address":{"address":"Rua Ganges","number":"553","complement":"galpao 1","city":{"name":"São Paulo","state":{"name":"São Paulo","acronym":"SP","country":"Brasil"}},"zip":"07443-030"},"vendor":{"code":"001","name":"Administracao"},"id":"20e8df5e-0d9e-4e77-8cf2-d31f3d5895cf","version":1,"timestamp":1439173303878,"userId":"vanessa.forestiero@altamira.com.br"},
-    {"company":{"name":null},"contact":{"person":{"name":"Vanessa Forestiero"},"email":{"address":"vanessa.forestiero@altamira.com.br"},"phone":{"internationalCode":55,"areaCode":11,"prefix":2095,"number":2855,"accessCode":0},"mobile": {"internationalCode":55,"areaCode":11,"prefix":99234,"number":4567},"department":"Vendas","role":"Assistente de Vendas"},"address":{"address":"Rua Ganges","number":"553","complement":"galpao 1","city":{"name":"São Paulo","state":{"name":"São Paulo","acronym":"SP","country":"Brasil"}},"zip":"07443-030"},"vendor":{"code":"001","name":"Administracao"},"id":"20e8df5e-0d9e-4e77-8cf2-d31f3d5895cf","version":1,"timestamp":1439173303878,"userId":"vanessa.forestiero@altamira.com.br"},
-    {"company":{"name":"Tecnequip"},"contact":{"person":{"name":"Vanessa Forestiero"},"email":{"address":"vanessa.forestiero@altamira.com.br"},"phone":{"internationalCode":55,"areaCode":11,"prefix":2095,"number":2855,"accessCode":0},"mobile": {"internationalCode":55,"areaCode":11,"prefix":99234,"number":4567},"department":"Vendas","role":"Assistente de Vendas"},"address":{"address":"Rua Ganges","number":"553","complement":"galpao 1","city":{"name":"São Paulo","state":{"name":"São Paulo","acronym":"SP","country":"Brasil"}},"zip":"07443-030"},"vendor":{"code":"001","name":"Administracao"},"id":"20e8df5e-0d9e-4e77-8cf2-d31f3d5895cf","version":1,"timestamp":1439173303878,"userId":"vanessa.forestiero@altamira.com.br"}*/
+    /*{"company":"","contact":{"person":{"name":"Vanessa Forestiero"},"email":{"address":"vanessa.forestiero@altamira.com.br"},"phone":{"internationalCode":55,"areaCode":11,"prefix":2095,"number":2855,"accessCode":0},"mobile": {"internationalCode":55,"areaCode":11,"prefix":99234,"number":4567},"department":"Vendas","role":"Assistente de Vendas"},"address":{"address":"Rua Ganges","number":"553","complement":"galpao 1","city":{"name":"São Paulo","state":{"name":"São Paulo","acronym":"SP","country":"Brasil"}},"zip":"07443-030"},"vendor":{"code":"001","name":"Administracao"},"id":"20e8df5e-0d9e-4e77-8cf2-d31f3d5895tf","version":1,"timestamp":1439173303878,"userId":"vanessa.forestiero@altamira.com.br"},
+    {"company":"Tecnequip Tecnologia em Equipamentos Ltda","contact":{"person":{"name":"Vanessa Forestiero"},"email":{"address":"vanessa.forestiero@altamira.com.br"},"phone":{"internationalCode":55,"areaCode":11,"prefix":2095,"number":2855,"accessCode":0},"mobile": {"internationalCode":55,"areaCode":11,"prefix":99234,"number":4567},"department":"Vendas","role":"Assistente de Vendas"},"address":{"address":"Rua Ganges","number":"553","complement":"galpao 1","city":{"name":"São Paulo","state":{"name":"São Paulo","acronym":"SP","country":"Brasil"}},"zip":"07443-030"},"vendor":{"code":"001","name":"Administracao"},"id":"20e8df5e-0d9e-4e77-8cf2-d31f3d5895cb","version":1,"timestamp":1439173303878,"userId":"vanessa.forestiero@altamira.com.br"},
+    {"company":null,"contact":{"person":{"name":"Vanessa Forestiero"},"email":{"address":"vanessa.forestiero@altamira.com.br"},"phone":{"internationalCode":55,"areaCode":11,"prefix":2095,"number":2855,"accessCode":0},"mobile": {"internationalCode":55,"areaCode":11,"prefix":99234,"number":4567},"department":"Vendas","role":"Assistente de Vendas"},"address":{"address":"Rua Ganges","number":"553","complement":"galpao 1","city":{"name":"São Paulo","state":{"name":"São Paulo","acronym":"SP","country":"Brasil"}},"zip":"07443-030"},"vendor":{"code":"001","name":"Administracao"},"id":"20e8df5e-0d9e-4e77-8cf2-d31f3c5895cf","version":1,"timestamp":1439173303878,"userId":"vanessa.forestiero@altamira.com.br"},
+    {"company":"Tecnequip","contact":{"person":{"name":"Vanessa Forestiero"},"email":{"address":"vanessa.forestiero@altamira.com.br"},"phone":{"internationalCode":55,"areaCode":11,"prefix":2095,"number":2855,"accessCode":0},"mobile": {"internationalCode":55,"areaCode":11,"prefix":99234,"number":4567},"department":"Vendas","role":"Assistente de Vendas"},"address":{"address":"Rua Ganges","number":"553","complement":"galpao 1","city":{"name":"São Paulo","state":{"name":"São Paulo","acronym":"SP","country":"Brasil"}},"zip":"07443-030"},"vendor":{"code":"001","name":"Administracao"},"id":"20e8df5e-0d9e-4e77-8cf2-d31f3d5895df","version":1,"timestamp":1439173303878,"userId":"vanessa.forestiero@altamira.com.br"}*/
   ];
 
   return {
@@ -81,11 +81,11 @@ angular.module('starter.services', [])
 
         Lead.add(lead)
         .then(function(result) {
-          $state.reload('tab.leads');
+          $state.reload('lead');
           SyncService.sync();
 
           if (!notification.foreground) {
-            $state.transitionTo('tab.leads', /*$stateParams*/{}, { reload: true, inherit: false, notify: true });
+            $state.transitionTo('lead', /*$stateParams*/{}, { reload: true, inherit: false, notify: true });
           } else {
             alert('Chegou uma nova oportunidade de negócio.');
             //$state.transitionTo('tab.leads', /*$stateParams*/{}, { reload: true, inherit: false, notify: true });
@@ -167,7 +167,7 @@ angular.module('starter.services', [])
 
           alert('Um email foi enviado para ' + user.email + ' com instruções para ativar o aplicativo. Enquanto este procedimento não for realizado o aplicativo não estará habilitado para receber informações do Sistema de Vendas da Altamira.')
 
-          $state.transitionTo('tab.leads', /*$stateParams*/{}, { reload: true, inherit: false, notify: true });
+          $state.transitionTo('lead', /*$stateParams*/{}, { reload: true, inherit: false, notify: true });
 
         }, function(error) {
           console.log('User registration error: ' + JSON.stringify(error))
@@ -200,7 +200,7 @@ angular.module('starter.services', [])
 
           Lead.add(response.data[i])
           .then(function(result) {
-            $state.transitionTo('tab.leads', {}, { reload: true, inherit: false, notify: true });
+            $state.transitionTo('lead', {}, { reload: true, inherit: false, notify: true });
           });
 
         }

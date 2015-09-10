@@ -1,13 +1,14 @@
-<ion-view view-title="Contas">
+<ion-view view-title="Contas" class="bar-assertive">
   <ion-content class="padding" scroll="true" ng-cloak>
     <p class="text-center"><img src="img/logo.png"></p>
     <h4 class="text-center" ng-show="$root.settings.accounts.length">Informe seu endereço de email para iniciar o aplicativo.</h4>
-    <h5 class="text-center" ng-show="!$root.settings.accounts.length">Para receber notificações é preciso informar um email que esteja cadastrada no sistema de Vendas da Altamira.</h5>
+    <h5 class="text-center" ng-show="!$root.settings.accounts.length">Para receber notificações é preciso informar um email que esteja cadastrado no sistema de Vendas da Altamira.</h5>
+    </br></br>
     <h6 class="text-center">Este aplicativo é de uso restrito da equipe de vendas da empresa Altamira Industria Metalurgica Ltda</h6>
     <ion-list>
       <label class="item item-input item-stacked-label">
         <span class="email-label">Email</span>
-        <input type="email" ng-model="$root.settings.account" placeholder="Email">
+        <input type="email" ng-model="$root.settings.account" required placeholder="Email">
       </label>
     </ion-list>
     <button class="button button-block button-assertive" ng-show="!$root.settings.showSpin" ng-click="register($root.settings.account)">
