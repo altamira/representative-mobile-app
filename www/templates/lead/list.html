@@ -19,7 +19,7 @@
                 <span class="btn-separator"></span>
                 <h4 class="mf-page-titles">&nbsp;Recados&nbsp;</h4>
                 <span class="btn-separator"></span>
-                <button class="button button-icon icon fa fa-plus" ng-click="newProcess()"></button>
+                <!--<button class="button button-icon icon fa fa-plus" ng-click="add()"></button>-->
                
             </ion-nav-buttons>
            
@@ -34,7 +34,7 @@
 
                                     <div class="item item-input-search">
                                         <label class="input-search-wrapper">
-                                            <input type="text" class="input-box" placeholder="search" ng-model="searchText">
+                                            <input type="text" class="input-box" placeholder="busca..." ng-model="searchText">
                                         </label>
                                     </div>
                                     <i class="icon fa-search search-icon" ng-click="searchProcess(searchText)"></i>
@@ -43,7 +43,7 @@
                         </div>
                         <div class="row">
                             <div class="col">
-                                <div class="list list-inset listing-col" ng-repeat="lead in leads">
+                                <div class="list list-inset listing-col" ng-repeat="lead in leads| filter:searchText">
                                     <div ng-if="lead.id != ''">
                                         <a class="item-list item-icon-right" href="#/lead/{{lead.id}}">
                                             <span class="text-center-middle"><span class="font-grey">{{lead.company}}</span> {{lead.contact.person.name}}</span>

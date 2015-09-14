@@ -121,7 +121,7 @@ angular.module('starter.services', [])
   }
 }])
 
-.factory('DeviceRegistrationService', ['$rootScope', '$http', '$state', '$localstorage', 'SyncService', function($rootScope, $http, $state, $localstorage, SyncService) {
+.factory('DeviceRegistrationService', ['$rootScope', '$http', '$state', '$location', '$localstorage', 'SyncService', function($rootScope, $http, $state, $location, $localstorage, SyncService) {
 
   "use strict";
 
@@ -167,7 +167,8 @@ angular.module('starter.services', [])
 
           alert('Um email foi enviado para ' + user.email + ' com instruções para ativar o aplicativo. Enquanto este procedimento não for realizado o aplicativo não estará habilitado para receber informações do Sistema de Vendas da Altamira.')
 
-          $state.transitionTo('lead', /*$stateParams*/{}, { reload: true, inherit: false, notify: true });
+          //$state.transitionTo('lead-list', /*$stateParams*/{}, { reload: true, inherit: false, notify: true });
+          $location.url('/lead');
 
         }, function(error) {
           console.log('User registration error: ' + JSON.stringify(error))
@@ -180,7 +181,7 @@ angular.module('starter.services', [])
 
 }])
 
-.factory('SyncService', ['$rootScope', '$http', '$state', '$localstorage', 'Lead', function($rootScope, $http, $state, $localstorage, Lead) {
+.factory('SyncService', ['$rootScope', '$http', '$state', '$location', '$localstorage', 'Lead', function($rootScope, $http, $state, $location, $localstorage, Lead) {
 
   "use strict";
 
@@ -200,7 +201,8 @@ angular.module('starter.services', [])
 
           Lead.add(response.data[i])
           .then(function(result) {
-            $state.transitionTo('lead', {}, { reload: true, inherit: false, notify: true });
+            //$state.transitionTo('lead', {}, { reload: true, inherit: false, notify: true });
+            $location.url('/lead');
           });
 
         }

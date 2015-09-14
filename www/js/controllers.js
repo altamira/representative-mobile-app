@@ -1,6 +1,6 @@
 angular.module('starter.controllers', [])
 
-.controller('LeadListCtrl', function($scope, SyncService, Lead, Leads) {
+.controller('LeadListCtrl', function($scope, $state, $location, Lead, Leads) {
   // With the new view caching in Ionic, Controllers are only called
   // when they are recreated or on app start, instead of every page change.
   // To listen for when this page is active (for example, to refresh data),
@@ -42,10 +42,12 @@ angular.module('starter.controllers', [])
     Lead.update(orig, edit);
     $scope.list();
   };  
+
 })
 
-.controller('LeadEditCtrl', function($scope, $state, $stateParams, Lead) {
-  Lead.get($stateParams.id).then(function(lead) {
+.controller('LeadEditCtrl', ['$scope', '$state', '$location', '$routeParams', 'Lead', function($scope, $state, $location, $routeParams, Lead) {
+  //Lead.get($stateParams.id).then(function(lead) {
+  Lead.get($routeParams.id).then(function(lead) {
     $scope.lead = lead;
     $scope.companyShow = true;
     $scope.contactShow = false;
@@ -53,7 +55,7 @@ angular.module('starter.controllers', [])
   }, function(error) {
     alert('Erro ao carregar os dados: ' + error);
   });
-})
+}])
 
 .controller('AccountCtrl', function($rootScope, $scope, $state, $localstorage, $ionicUser, $cordovaNetwork, PushService) {
 

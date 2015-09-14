@@ -1,14 +1,8 @@
-<!--
-  This template loads for the 'tab.friend-detail' state (app.js)
-  'friend' is a $scope variable created in the FriendsCtrl controller (controllers.js)
-  The FriendsCtrl pulls data from the Friends service (service.js)
-  The Friends service returns an array of friend data
--->
 <ion-side-menus>
 
     <ion-side-menu side="left" class="sidemenu-bg">
         <ion-content class="scroll-content ionic-scroll">
-            <div class="scroll" leftside-menu style="padding: 0px !important">
+            <div class="scroll" left-side-menu style="padding: 0px !important">
             </div>
             <div class="scroll-bar scroll-bar-v">
                 <div class="scroll-bar-indicator scroll-bar-fade-out"></div>
@@ -21,13 +15,13 @@
             
             <ion-nav-buttons side="left">
                 
-                <button class="button button-icon icon fa fa-arrow-left"></button>
+                <a class="button button-icon icon fa fa-arrow-left" href="#/lead"  menu-toggle="left"></a>
                 <span class="btn-separator"></span>
                 
                 <h4 class="mf-page-titles">&nbsp;{{lead.contact.person.name}}&nbsp;</h4>
                 <span class="btn-separator"></span>
-                <button class="button button-icon icon fa fa-check" ng-click="newProcess()">
-                </button>
+                <!--<button class="button button-icon icon fa fa-check" ng-click="add()">
+                </button>-->
                
             </ion-nav-buttons>
            

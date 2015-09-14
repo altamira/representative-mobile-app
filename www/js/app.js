@@ -13,6 +13,7 @@ angular.module('starter', [
     'ngResource',
     'ngLocale',
     'ngRoute',
+    'ui.router',
     'ionic.service.core',
     'ionic.service.push',
     'starter.controllers', 
@@ -20,7 +21,8 @@ angular.module('starter', [
     'starter.directives'
   ])
 
-.run(function($rootScope, $ionicPlatform, $cordovaPush, 
+.run(function(
+  $rootScope, $location, $ionicPlatform, $cordovaPush, 
   $cordovaSQLite, $cordovaDevice, $cordovaNetwork, 
   $localstorage, AuthService, PushService) {
 
@@ -73,33 +75,38 @@ angular.module('starter', [
   });
 })
 
-.run(['$rootScope', '$state', 'AuthService', function ($rootScope, $state, AuthService) {
+/*.run(['$rootScope', '$state', 'AuthService', function ($rootScope, $state, AuthService) {
     $rootScope.$on("$stateChangeStart", function(event, toState, toParams, fromState, fromParams){
       if (toState.authenticate && !AuthService.isAuthenticated()){
         // User isn’t authenticated
+        console.log('State transition to Account because requires authentication');
         $state.transitionTo("account");
         event.preventDefault(); 
       }
     });
-  }])
+  }])*/
 
-.config(['$stateProvider', '$urlRouterProvider', '$resourceProvider', '$locationProvider', '$routeProvider', '$httpProvider', 
-  function($stateProvider, $urlRouterProvider, $resourceProvider, $locationProvider, $routeProvider, $httpProvider) {
+.config([
+  '$stateProvider', '$urlRouterProvider', '$resourceProvider', 
+  '$locationProvider', '$routeProvider', '$httpProvider', 
+  function(
+    $stateProvider, $urlRouterProvider, $resourceProvider, 
+    $locationProvider, $routeProvider, $httpProvider) {
 
   // Ionic uses AngularUI Router which uses the concept of states
   // Learn more here: https://github.com/angular-ui/ui-router
   // Set up the various states which the app can be in.
   // Each state's controller can be found in controllers.js
-  $stateProvider
+  //$stateProvider
 
   // setup an abstract state for the tabs directive
-  /*.state('tab', {
-    url: '/tab',
+  /*.state('lead', {
+    url: '/lead',
     abstract: true,
-    templateUrl: 'templates/tabs.html'
+    templateUrl: 'templates/lead/menu.html'
   })*/
 
-  .state('lead', {
+  /*.state('lead', {
     url: '/lead',
     cache: false, //required
     templateUrl: 'templates/lead/list.html',
@@ -109,10 +116,8 @@ angular.module('starter', [
 
   .state('lead-edit', {
     url: '/lead/:id',
-
-        templateUrl: 'templates/lead/edit.html',
-        controller: 'LeadEditCtrl'
-,
+    templateUrl: 'templates/lead/edit.html',
+    controller: 'LeadEditCtrl',
     authenticate: true
   })
 
@@ -121,9 +126,26 @@ angular.module('starter', [
     templateUrl: 'templates/account.html',
     controller: 'AccountCtrl',
     authenticate: false
-  });
+  });*/
 
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/lead');
+  //$urlRouterProvider.otherwise('/lead');
+
+  $routeProvider
+  .when('/lead', {
+    templateUrl: 'templates/lead/list.html',
+    controller: 'LeadListCtrl'
+  })
+  .when('/lead/:id', {
+    templateUrl: 'templates/lead/edit.html',
+    controller: 'LeadEditCtrl'
+  })
+  .when('/account', {
+    templateUrl: 'templates/account.html',
+    controller: 'AccountCtrl'
+  })
+  .otherwise({
+    redirectTo: '/lead'
+  });
 
 }]);

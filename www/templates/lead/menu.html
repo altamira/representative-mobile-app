@@ -1,19 +1,11 @@
-<ion-side-menus>
-  <!-- Left menu -->
-  <ion-side-menu side="left">
-  </ion-side-menu>
+<ion-tabs tabs-style="tabs-icon-top" tabs-type="tabs-positive" animation="slide-left-right">
 
-  <ion-side-menu-content>
-	  <!-- Main content, usually <ion-nav-view> -->
-	  <ion-nav-view>
-	  	<ion-nav-bar>
-	  		<ion-nav-buttons side="left">
-				<!-- Toggle left side menu -->
-				<button menu-toggle="left" class="button button-icon icon fa fa-bars"></button>
-				<i menu-toggle="left" class="fa fa-bars"></i>
-			</ion-nav-buttons>
-		</ion-nav-bar>
-	  </ion-nav-view>
-  </ion-side-menu-content>
+<ion-tab title="List" icon="ion-home" href="#/lead/list">
+  <ion-nav-view name="list-tab"></ion-nav-view>
+</ion-tab>
 
-</ion-side-menus>
+<ion-tab title="Edit" icon="ion-ios7-information" href="#/lead/edit">
+  <ion-nav-view name="edit-tab"></ion-nav-view>
+</ion-tab>
+
+</ion-tabs>
