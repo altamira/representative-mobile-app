@@ -45,19 +45,31 @@ angular.module('starter.controllers', [])
 
 })
 
-.controller('LeadEditCtrl', ['$scope', '$state', '$location', '$routeParams', 'Lead', function($scope, $state, $location, $routeParams, Lead) {
+.controller('LeadEditCtrl', ['$scope', '$state', '$location', '$stateParams', '$routeParams', '$window', 'Lead', 
+  function($scope, $state, $location, $stateParams, $routeParams, $window, Lead) {
   //Lead.get($stateParams.id).then(function(lead) {
   Lead.get($routeParams.id).then(function(lead) {
     $scope.lead = lead;
     $scope.companyShow = true;
-    $scope.contactShow = false;
+    $scope.contactShow = true;
     $scope.locationShow = false;
+    $scope.commentsShow = false;
   }, function(error) {
     alert('Erro ao carregar os dados: ' + error);
   });
+
+  $scope.go = function(link) {
+    $window.location.href = link;
+  }
 }])
 
-.controller('AccountCtrl', function($rootScope, $scope, $state, $localstorage, $ionicUser, $cordovaNetwork, PushService) {
+.controller('AccountCtrl', function($rootScope, $scope, $state, $location, $localstorage, $ionicUser, $cordovaNetwork, PushService) {
+
+  var user = $localstorage.get('user');
+  
+  if (user.id) {
+    $location.url('/lead');
+  }
 
   // Identifies a user with the Ionic User service
   $scope.register = function(account) {

@@ -23,6 +23,14 @@
     <gap:plugin name="org.apache.cordova.network-information" version="0.2.12" />
     <gap:plugin name="com.phonegap.plugins.pushplugin" version="2.5.0" />
     <gap:plugin name="io.litehelpers.cordova.sqlite" version="0.7.10" />
+    <gap:plugin name="cordova-plugin-whitelist" version="1.0.0" />
+
+    <access origin="*"/>
+    <access origin="tel://*" launch-external="true"/>
+    <access origin="geo://*" launch-external="true"/>
+    <access origin="mailto://*" launch-external="true"/>
+    <access origin="sms://*" launch-external="true"/>
+    <access origin="market://*" launch-external="true"/>
 
     <!-- <icon src="icon.png" /> -->
 

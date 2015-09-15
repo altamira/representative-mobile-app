@@ -1,14 +1,23 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<widget id="br.com.altamira.sales.representative" version="0.0.11" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="br.com.altamira.sales.representative" version="0.1.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
   <name>Altamira Representantes</name>
   <description>
-        Altamira Representantes
-    </description>
+    Altamira Representantes
+  </description>
   <author email="alessandro.holanda@altamira.com.br" href="http://www.altamira.com.br/">
-      Alessandro Holanda
-    </author>
+    Alessandro Holanda
+  </author>
   <content src="index.html"/>
   <access origin="*"/>
+  <access origin="tel://*" launch-external="true"/>
+  <access origin="geo://*" launch-external="true"/>
+  <access origin="mailto://*" launch-external="true"/>
+  <access origin="sms://*" launch-external="true"/>
+  <access origin="market://*" launch-external="true"/>
+  <access origin="tel://*" launch-external="true"/>
+  <allow-intent href="mailto:*" />
+  <access origin="tel:*" launch-external="yes" /> 
+  <access origin="mailto:*" launch-external="yes" />
   <preference name="webviewbounce" value="false"/>
   <preference name="UIWebViewBounce" value="false"/>
   <preference name="DisallowOverscroll" value="true"/>

@@ -782,7 +782,7 @@ angular.module('starter.directives', [])
     return function(scope, elm, attr) {
         elm.html('<div class="row">\n\
                     <div class="col" style="color: white;text-align: center">\n\
-                        <a href="' + localStorage.getItem('MainRestangular') + '" style="text-decoration: none;color: #ffffff">\n\
+                        <a href="#/lead" style="text-decoration: none;color: #ffffff">\n\
                             <span class="logo-side-menu"></span>\n\
                             <span style="font-size: 30px; float:left; padding-top:16px; padding-left:10px; font-family: Open Sans">Altamira</span>\n\
                         </a>\n\
@@ -804,7 +804,7 @@ angular.module('starter.directives', [])
                 </div>\n\
                 <div id="vendas" class="left-menu-items" style="display:auto;"><div class="row list-box" style="margin-bottom:10px;">\n\
                     <div class="col icon-list-box" style="background-color: #ef4e3a;">\n\
-                        <a href="#/manufacture/bom" style="text-decoration: none;color: #000000">\n\
+                        <a href="#/lead" style="text-decoration: none;color: #000000">\n\
                             <div class="row">\n\
                                 <div class="col" style="padding-top:15px;">\n\
                                     <span class="icon-side-list"></span>\n\
@@ -812,13 +812,13 @@ angular.module('starter.directives', [])
                             </div>\n\
                             <div class="row produce-name" >\n\
                                 <div class="col">\n\
-                                    <span>Lista de Material</span>\n\
+                                    <span>Contatos</span>\n\
                                 </div>\n\
                             </div>\n\
                         </a>\n\
                     </div>\n\
                     <div class="col icon-list-box" style="background-color: #ef4e3a;">\n\
-                        <a href="#/manufacture/process/0" style="text-decoration: none;color: #000000">\n\
+                        <a href="#/lead" style="text-decoration: none;color: #000000">\n\
                             <div class="row">\n\
                                 <div class="col" style="padding-top:15px;">\n\
                                     <span class="icon-side-github-6"></span>\n\
@@ -826,7 +826,7 @@ angular.module('starter.directives', [])
                             </div>\n\
                             <div class="row produce-name" >\n\
                                 <div class="col">\n\
-                                    <span>Processo</span>\n\
+                                    <span>Pedidos</span>\n\
                                 </div>\n\
                             </div>\n\
                         </a>\n\
@@ -834,16 +834,16 @@ angular.module('starter.directives', [])
                 </div>\n\
                 <div class="row list-box" style="margin-bottom:5px; padding-right:0px;">\n\
                     <div class="col icon-box2" style="background-color: #ef4e3a;">\n\
-                        <a href="#/material/list" style="text-decoration:none" title="Cadastro de Material"><span class="fa-cubes"></span></a>\n\
+                        <a href="#/lead" style="text-decoration:none" title="Cadastro de Cliente"><span class="fa-cubes"></span></a>\n\
                     </div>\n\
                     <div class="col  icon-box2" style="background-color: #ef4e3a;">\n\
-                        <a href="#/shipping/planning" style="text-decoration:none" title="Planejamento de Entrega"><span class="fa-calendar"></span></a>\n\
+                        <a href="#/lead" style="text-decoration:none" title="Agenda"><span class="fa-calendar"></span></a>\n\
                     </div>\n\
                     <div class="col  icon-box2" style="background-color: #ef4e3a;">\n\
-                        <a href="#/shipping/execution" style="text-decoration:none" title="Expedicao"><span class="fa-truck"></span></a>\n\
+                        <a href="#/lead" style="text-decoration:none" title="Posicao Pedido"><span class="fa-truck"></span></a>\n\
                     </div>\n\
                     <div class="col  icon-box2" style="background-color: #ef4e3a;">\n\
-                        <a href="#" style="text-decoration:none" title="Estatistics"><span class="fa-bar-chart"></span></a>\n\
+                        <a href="#/lead" style="text-decoration:none" title="Estatistics"><span class="fa-bar-chart"></span></a>\n\
                     </div>\n\
                 </div>\n\
                 <div class="row" style="background-color: #ef4e3a;margin: auto;width: 95%;margin-bottom: 10px; padding-top:4px; padding-bottom:4px;">\n\
@@ -852,7 +852,7 @@ angular.module('starter.directives', [])
                                 <span class="icon-title">Orçamento</span>\n\
                     </div>\n\
                 </div>\n\
-                <a href="#/manufacture/execution" style="text-decoration:none"><div class="row" style="background-color: #ef4e3a;margin: auto;width: 95%;margin-bottom: 10px; padding-top:8px; padding-bottom:8px;">\n\
+                <a href="#/lead" style="text-decoration:none"><div class="row" style="background-color: #ef4e3a;margin: auto;width: 95%;margin-bottom: 10px; padding-top:8px; padding-bottom:8px;">\n\
                     <div class="col">\n\
                         <i class="icon-side-phone fg-white"></i>\n\
                         <span class="icon-title">Recados</span>\n\

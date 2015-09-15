@@ -81,15 +81,23 @@ angular.module('starter.services', [])
 
         Lead.add(lead)
         .then(function(result) {
-          $state.reload('lead');
+          //$location.url('/lead');
+          //$window.location.reload();
+
           SyncService.sync();
 
+          //$state.reload('lead');
+
           if (!notification.foreground) {
-            $state.transitionTo('lead', /*$stateParams*/{}, { reload: true, inherit: false, notify: true });
+            //$state.transitionTo('lead', {}, { reload: true, inherit: false, notify: true });
+            $location.url('/lead');
+            $window.location.reload();
           } else {
-            alert('Chegou uma nova oportunidade de negócio.');
-            //$state.transitionTo('tab.leads', /*$stateParams*/{}, { reload: true, inherit: false, notify: true });
-            $state.transitionTo($state.current, $state.$current.params, { reload: true, inherit: true, notify: true });//reload
+            alert('Chegou um novo recado.');
+            //$state.transitionTo('tab.leads', {}, { reload: true, inherit: false, notify: true });
+            //$state.transitionTo($state.current, $state.$current.params, { reload: true, inherit: true, notify: true });//reload
+            $location.url('/lead');
+            $window.location.reload();
           }
         })
         
@@ -169,6 +177,7 @@ angular.module('starter.services', [])
 
           //$state.transitionTo('lead-list', /*$stateParams*/{}, { reload: true, inherit: false, notify: true });
           $location.url('/lead');
+          //$window.location.reload();
 
         }, function(error) {
           console.log('User registration error: ' + JSON.stringify(error))
@@ -203,6 +212,7 @@ angular.module('starter.services', [])
           .then(function(result) {
             //$state.transitionTo('lead', {}, { reload: true, inherit: false, notify: true });
             $location.url('/lead');
+            $window.location.reload();
           });
 
         }

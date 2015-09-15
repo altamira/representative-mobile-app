@@ -15,7 +15,7 @@
             
             <ion-nav-buttons side="left">
                 
-                <a class="button button-icon icon fa fa-arrow-left" href="#/lead"  menu-toggle="left"></a>
+                <a class="button button-icon icon fa fa-arrow-left" href="#/lead" menu-toggle="left"></a>
                 <span class="btn-separator"></span>
                 
                 <h4 class="mf-page-titles">&nbsp;{{lead.contact.person.name}}&nbsp;</h4>
@@ -29,9 +29,9 @@
 
         <ion-nav-view name="menuContent" class="view-container">
           <ion-view class="pane">
-                    <ion-content class="padding scroll-content ionic-scroll  has-header">
+            <ion-content class="padding scroll-content ionic-scroll  has-header">
 
-              <div class="list card" ng-show='lead.company.name.length'>
+              <div class="list card" ng-show='lead.company.length'>
                 <div class="item item-divider assertive" ng-click="companyShow = !companyShow; contactShow = false; locationShow = false; commentsShow = false;">Empresa</div>
                 <div class="item item-body" ng-show="companyShow">
                   <ion-item>
@@ -47,19 +47,13 @@
                     <label class="item">{{lead.contact.person.name}}</label>
                   </ion-item>
                   <ion-item>
-                    <label class="item">{{lead.contact.department}}</label>
-                  </ion-item>
-                  <ion-item>
-                    <label class="item">{{lead.contact.role}}</label>
-                  </ion-item>  
-                  <ion-item>
-                    <label class="item">{{lead.contact.email.address}}</label>
+                    <a class="icon fa fa-envelope" ng-click="go('mailto:'+lead.contact.email.address)">&nbsp;{{lead.contact.email.address}}</a>                    
                   </ion-item>    
                   <ion-item>
-                    <label class="item">({{lead.contact.phone.areaCode}}) {{lead.contact.phone.prefix}}-{{lead.contact.phone.number}} {{lead.contact.phone.accessCode}}</label>           
+                    <a class="icon fa fa-phone" ng-click="go('tel:'+lead.contact.phone.areaCode + lead.contact.phone.prefix + lead.contact.phone.number)">&nbsp;({{lead.contact.phone.areaCode}}) {{lead.contact.phone.prefix}}-{{lead.contact.phone.number}}</a><span ng-show="lead.contact.phone.accessCode.trim().length > 1">&nbsp;ramal: {{lead.contact.phone.accessCode}}</span>
                   </ion-item>
-                  <ion-item>
-                    <label class="item">({{lead.contact.mobile.areaCode}}) {{lead.contact.mobile.prefix}}-{{lead.contact.mobile.number}}</label>               
+                  <ion-item ng-show="lead.contact.mobile.areaCode">
+                    <a class="icon fa fa-mobile" ng-click="go('tel:'+lead.contact.mobile.areaCode + lead.contact.mobile.prefix + lead.contact.mobile.number)">&nbsp;({{lead.contact.mobile.areaCode}}) {{lead.contact.mobile.prefix}}-{{lead.contact.mobile.number}}</a>            
                   </ion-item>
                 </div>
               </div>

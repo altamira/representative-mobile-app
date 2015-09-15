@@ -68,14 +68,16 @@ angular.module('starter', [
 
     var networkStatus = $cordovaNetwork.getNetwork();
 
-    if (networkStatus != Connection.UNKNOWN && networkStatus != Connection.NONE && AuthService.isAuthenticated()) {
+    if (!user.id) {
+      $location.url('/account');
+    } else if (networkStatus != Connection.UNKNOWN && networkStatus != Connection.NONE && AuthService.isAuthenticated()) {
       PushService.register();
     }
 
   });
 })
 
-/*.run(['$rootScope', '$state', 'AuthService', function ($rootScope, $state, AuthService) {
+.run(['$rootScope', '$state', 'AuthService', function ($rootScope, $state, AuthService) {
     $rootScope.$on("$stateChangeStart", function(event, toState, toParams, fromState, fromParams){
       if (toState.authenticate && !AuthService.isAuthenticated()){
         // User isn’t authenticated
@@ -84,7 +86,7 @@ angular.module('starter', [
         event.preventDefault(); 
       }
     });
-  }])*/
+  }])
 
 .config([
   '$stateProvider', '$urlRouterProvider', '$resourceProvider', 
@@ -97,16 +99,16 @@ angular.module('starter', [
   // Learn more here: https://github.com/angular-ui/ui-router
   // Set up the various states which the app can be in.
   // Each state's controller can be found in controllers.js
-  //$stateProvider
+  /*$stateProvider
 
   // setup an abstract state for the tabs directive
-  /*.state('lead', {
+  .state('lead', {
     url: '/lead',
     abstract: true,
     templateUrl: 'templates/lead/menu.html'
-  })*/
+  })
 
-  /*.state('lead', {
+  .state('lead', {
     url: '/lead',
     cache: false, //required
     templateUrl: 'templates/lead/list.html',
@@ -126,10 +128,9 @@ angular.module('starter', [
     templateUrl: 'templates/account.html',
     controller: 'AccountCtrl',
     authenticate: false
-  });*/
+  });
 
-  // if none of the above states are matched, use this as the fallback
-  //$urlRouterProvider.otherwise('/lead');
+  $urlRouterProvider.otherwise('/lead');*/
 
   $routeProvider
   .when('/lead', {
