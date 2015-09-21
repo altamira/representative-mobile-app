@@ -46,8 +46,8 @@ angular.module('starter.services', [])
   }
 }])
 
-.factory('PushService', ['$rootScope', '$state', '$localstorage',  '$cordovaPush', 'DeviceRegistrationService', 'SyncService', 'Lead', 
-  function($rootScope, $state, $localstorage, $cordovaPush, DeviceRegistrationService, SyncService, Lead) {
+.factory('PushService', ['$rootScope', '$state', '$location', '$localstorage', '$window', '$cordovaPush', 'DeviceRegistrationService', 'SyncService', 'Lead', 
+  function($rootScope, $state, $location, $localstorage, $window, $cordovaPush, DeviceRegistrationService, SyncService, Lead) {
 
   var androidConfig = {
     "senderID": "420419347783"
@@ -90,13 +90,13 @@ angular.module('starter.services', [])
 
           if (!notification.foreground) {
             //$state.transitionTo('lead', {}, { reload: true, inherit: false, notify: true });
-            $location.url('/lead');
+            //$location.url('/lead');
             $window.location.reload();
           } else {
             alert('Chegou um novo recado.');
             //$state.transitionTo('tab.leads', {}, { reload: true, inherit: false, notify: true });
             //$state.transitionTo($state.current, $state.$current.params, { reload: true, inherit: true, notify: true });//reload
-            $location.url('/lead');
+            //$location.url('/lead');
             $window.location.reload();
           }
         })
